@@ -3,7 +3,7 @@
 #include <QGraphicsTextItem>
 #include <QIcon>
 
-Game::Game(QWidget* parent) : QGraphicsView(parent), score(0),isGameOver(false) {
+Game::Game(QWidget* parent) : QGraphicsView(parent), score(0),isGameOver(false), menuButton(nullptr) {
 	scene = new QGraphicsScene(this);
 	setScene(scene);
 
@@ -88,6 +88,14 @@ void Game::restartGame()
 
 	// 重置游戏状态
 	isGameOver = false;
+
+	// 清理菜单按钮（若存在）
+	if (menuButton) {
+		menuButton->hide();
+		delete menuButton;
+		menuButton = nullptr;
+	}
+
 	timer->start(20);
 }
 
@@ -111,11 +119,33 @@ void Game::gameLoop() {
 		if (bird->collidesWithItem(pipe)) {
 			timer->stop();
 			QGraphicsPixmapItem* gameOverItem = scene->addPixmap(QPixmap(":/assets/images/gameover.png"));
-			// 将 Game Over 画面放在中间位置
-			gameOverItem->setPos(this->width() / 2 - gameOverItem->pixmap().width() / 2, this->height() / 2 - gameOverItem->pixmap().height() / 2);
+			// 将 Game Over 画面放在背景上方中部（靠近顶部）
+			int gx = this->width() / 2 - gameOverItem->pixmap().width() / 2;
+            int gy = this->height() / 2 - gameOverItem->pixmap().height() / 2;
+			gameOverItem->setPos(gx, gy);
 			isGameOver = true;
-			// 直接通知外部（MainWindow）游戏结束，立即返回开始界面
-			notifyGameOver();
+			// 提示按空格重新开始，放在 gameover 图片下方
+			QGraphicsTextItem* restartText = new QGraphicsTextItem("按空格键重新开始");
+			restartText->setDefaultTextColor(Qt::black);
+			restartText->setFont(QFont("Arial", 12, QFont::Bold));
+			restartText->setPos(this->width() / 2 - restartText->boundingRect().width() / 2, gy + gameOverItem->pixmap().height() + 10);
+			scene->addItem(restartText);
+
+			// 创建一个与主界面样式一致的“返回主菜单”按钮（如果尚未创建）
+			if (!menuButton) {
+				menuButton = new QPushButton(tr("返回主菜单"), this);
+				QString greenStyle = "background-color: #2ecc71; color: white; border: none; border-radius: 6px; font-weight: bold;";
+				menuButton->setStyleSheet(greenStyle);
+				int bw = 140;
+				int bh = 36;
+				int bx = this->width() / 2 - bw / 2;
+				int by = gy + gameOverItem->pixmap().height() + 40;
+				menuButton->setGeometry(bx, by, bw, bh);
+				menuButton->show();
+				connect(menuButton, &QPushButton::clicked, this, &Game::notifyGameOver);
+			}
+
+			// 不立即通知外部，保留 Game Over 显示，等待玩家操作（空格重启 或 点击返回主菜单）
 			return;
 		}
 

@@ -43,10 +43,18 @@ MainWindow::MainWindow(QWidget *parent)
     // --- Credits Page ---
     creditsPage = new QWidget(this);
     creditsPage->setFixedSize(400, 600);
+
+    QLabel* creditsBackground = new QLabel(creditsPage);
+    QPixmap cbg(":/assets/images/background-day.png");
+    creditsBackground->setPixmap(cbg.scaled(400, 600));
+    creditsBackground->setFixedSize(400, 600);
+
     QLabel* creditsLabel = new QLabel(creditsPage);
     creditsLabel->setWordWrap(true);
-    creditsLabel->setText(tr("制作人:\n张三\n李四\n王五\n\n返回以返回开始界面"));
-    creditsLabel->setGeometry(40, 100, 320, 300);
+    creditsLabel->setText(tr("制作人:\n张三\n李四\n王五"));
+    creditsLabel->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
+    creditsLabel->setGeometry(0, 30, 400, 120);
+
     creditsBackButton = new QPushButton(tr("返回"), creditsPage);
     creditsBackButton->setGeometry(150, 440, 100, 40);
     creditsBackButton->setStyleSheet("background-color: #2ecc71; color: white; border: none; border-radius: 6px; font-weight: bold;");

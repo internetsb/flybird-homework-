@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <QPushButton>
 #include "bird.h"
 #include "pipe.h"
 
@@ -27,6 +28,7 @@ private:
 	QList<Pipe*> pipes;
 	int score;
 	bool isGameOver;
+    QPushButton* menuButton;
 };
 
 #endif // GAME_H
