@@ -67,24 +67,24 @@ void Game::restartGame()
 	score = 0;
 	scoreText->setPlainText(QString("Score: %1").arg(score));
 
-	// 移除 Game Over 画面
-	QList<QGraphicsItem*> items = scene->items();
-	for (QGraphicsItem* item : items) {
-		if (QGraphicsPixmapItem* pixmapItem = dynamic_cast<QGraphicsPixmapItem*>(item)) 
-		{
-			if (pixmapItem->pixmap().cacheKey() == QPixmap(":/assets/images/gameover.png").cacheKey()) 
-			{
-				scene->removeItem(pixmapItem);
-				delete pixmapItem;
-			}
-		}
-		if (QGraphicsTextItem* textItem = dynamic_cast<QGraphicsTextItem*>(item)) {
-			if (textItem->toPlainText() == "按空格键重新开始") {
-				scene->removeItem(textItem);
-				delete textItem;
-			}
-		}	
-	}
+    // // 移除 Game Over 画面
+    // QList<QGraphicsItem*> items = scene->items();
+    // for (QGraphicsItem* item : items) {
+    // 	if (QGraphicsPixmapItem* pixmapItem = dynamic_cast<QGraphicsPixmapItem*>(item))
+    // 	{
+    // 		if (pixmapItem->pixmap().cacheKey() == QPixmap(":/assets/images/gameover.png").cacheKey())
+    // 		{
+    // 			scene->removeItem(pixmapItem);
+    // 			delete pixmapItem;
+    // 		}
+    // 	}
+    // 	if (QGraphicsTextItem* textItem = dynamic_cast<QGraphicsTextItem*>(item)) {
+    // 		if (textItem->toPlainText() == "按空格键重新开始") {
+    // 			scene->removeItem(textItem);
+    // 			delete textItem;
+    // 		}
+    // 	}
+    // }
 
 	// 重置游戏状态
 	isGameOver = false;
