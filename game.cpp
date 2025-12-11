@@ -2,8 +2,21 @@
 #include <QKeyEvent>
 #include <QGraphicsTextItem>
 #include <QIcon>
+#include <QSettings>
 
-Game::Game(QWidget* parent) : QGraphicsView(parent), score(0),isGameOver(false), menuButton(nullptr) {
+Game::Game(QWidget* parent)
+	: QGraphicsView(parent)
+	, scene(nullptr)
+	, scoreText(nullptr)
+	, highScoreText(nullptr)
+	, bird(nullptr)
+	, timer(nullptr)
+	, pipes()
+	, score(0)
+	, highScore(0)
+	, isGameOver(false)
+	, menuButton(nullptr)
+{
 	scene = new QGraphicsScene(this);
 	setScene(scene);
 
@@ -37,6 +50,17 @@ Game::Game(QWidget* parent) : QGraphicsView(parent), score(0),isGameOver(false),
 	scoreText->setFont(QFont("Arial", 20));
 	scoreText->setPos(10, 10);
 	scene->addItem(scoreText);
+
+	// 读取并显示历史最高分
+	QSettings settings("FlybirdCompany", "Flybird");
+	highScore = settings.value("highScore", 0).toInt();
+    highScoreText = new QGraphicsTextItem(QString::fromUtf8("Best: %1").arg(highScore));
+	highScoreText->setZValue(1);
+	highScoreText->setDefaultTextColor(Qt::white);
+	highScoreText->setFont(QFont("Arial", 16));
+	int hx = this->width() - highScoreText->boundingRect().width() - 10;
+	highScoreText->setPos(hx, 14);
+	scene->addItem(highScoreText);
 }
 
 void Game::keyPressEvent(QKeyEvent* event) {
@@ -67,24 +91,24 @@ void Game::restartGame()
 	score = 0;
 	scoreText->setPlainText(QString("Score: %1").arg(score));
 
-    // // 移除 Game Over 画面
-    // QList<QGraphicsItem*> items = scene->items();
-    // for (QGraphicsItem* item : items) {
-    // 	if (QGraphicsPixmapItem* pixmapItem = dynamic_cast<QGraphicsPixmapItem*>(item))
-    // 	{
-    // 		if (pixmapItem->pixmap().cacheKey() == QPixmap(":/assets/images/gameover.png").cacheKey())
-    // 		{
-    // 			scene->removeItem(pixmapItem);
-    // 			delete pixmapItem;
-    // 		}
-    // 	}
-    // 	if (QGraphicsTextItem* textItem = dynamic_cast<QGraphicsTextItem*>(item)) {
-    // 		if (textItem->toPlainText() == "按空格键重新开始") {
-    // 			scene->removeItem(textItem);
-    // 			delete textItem;
-    // 		}
-    // 	}
-    // }
+    // 移除 Game Over 画面
+    QList<QGraphicsItem*> items = scene->items();
+    for (QGraphicsItem* item : items) {
+        if (QGraphicsPixmapItem* pixmapItem = dynamic_cast<QGraphicsPixmapItem*>(item))
+        {
+            if (pixmapItem->pixmap().cacheKey() == QPixmap(":/assets/images/gameover.png").cacheKey())
+            {
+                scene->removeItem(pixmapItem);
+                delete pixmapItem;
+            }
+        }
+        if (QGraphicsTextItem* textItem = dynamic_cast<QGraphicsTextItem*>(item)) {
+            if (textItem->toPlainText() == "按空格键重新开始") {
+                scene->removeItem(textItem);
+                delete textItem;
+            }
+        }
+    }
 
 	// 重置游戏状态
 	isGameOver = false;
@@ -146,6 +170,10 @@ void Game::gameLoop() {
 			}
 
 			// 不立即通知外部，保留 Game Over 显示，等待玩家操作（空格重启 或 点击返回主菜单）
+
+			// 保存最高分到设置
+			QSettings settings("FlybirdCompany", "Flybird");
+			settings.setValue("highScore", highScore);
 			return;
 		}
 
@@ -157,6 +185,16 @@ void Game::gameLoop() {
 
 			// 更新分数显示
 			scoreText->setPlainText(QString("Score: %1").arg(score));
+
+			// 如果当前分数超过历史最高分，更新显示（保存在游戏结束时完成）
+			if (score > highScore) {
+				highScore = score;
+				if (highScoreText) {
+					highScoreText->setPlainText(QString::fromUtf8("最高分: %1").arg(highScore));
+					int hx = this->width() - highScoreText->boundingRect().width() - 10;
+					highScoreText->setPos(hx, 14);
+				}
+			}
 		}
 
 		// 如果管道移出了屏幕，将其从场景和列表中删除

@@ -23,10 +23,12 @@ private slots:
 private:
 	QGraphicsScene* scene;
 	QGraphicsTextItem* scoreText;
+    QGraphicsTextItem* highScoreText;
 	Bird* bird;
 	QTimer* timer;
 	QList<Pipe*> pipes;
 	int score;
+    int highScore;
 	bool isGameOver;
     QPushButton* menuButton;
 };
