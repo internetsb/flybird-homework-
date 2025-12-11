@@ -1,0 +1,3 @@
+D:\IE\Code\CMake\bin\cmake.exe -E rm -f CMakeFiles\flybird.dir/objects.a
+D:\IE\Code\MSYS2\msys2\ucrt64\bin\ar.exe qc CMakeFiles\flybird.dir/objects.a @CMakeFiles\flybird.dir\objects1.rsp
+D:\IE\Code\MSYS2\msys2\ucrt64\bin\g++.exe -g -mwindows -Wl,--whole-archive CMakeFiles\flybird.dir/objects.a -Wl,--no-whole-archive -o flybird.exe -Wl,--out-implib,libflybird.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\flybird.dir\linkLibs.rsp

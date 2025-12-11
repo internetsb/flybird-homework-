@@ -114,14 +114,8 @@ void Game::gameLoop() {
 			// 将 Game Over 画面放在中间位置
 			gameOverItem->setPos(this->width() / 2 - gameOverItem->pixmap().width() / 2, this->height() / 2 - gameOverItem->pixmap().height() / 2);
 			isGameOver = true;
-            //提示按空格重新游戏，用QGraphicsTextItem
-            QGraphicsTextItem* restartText = new QGraphicsTextItem("按空格键重新开始");
-			restartText->setDefaultTextColor(Qt::black);
-			restartText->setFont(QFont("Arial", 12, QFont::Bold));
-			//放在中间
-			restartText->setPos(this->width() / 2 - restartText->boundingRect().width() / 2, this->height() / 2 + gameOverItem->pixmap().height() / 2 + 10);
-           
-            scene->addItem(restartText);
+			// 直接通知外部（MainWindow）游戏结束，立即返回开始界面
+			notifyGameOver();
 			return;
 		}
 
@@ -145,4 +139,9 @@ void Game::gameLoop() {
 			++it;  // 继续遍历
 		}
 	}
+}
+
+void Game::notifyGameOver()
+{
+	emit gameOver();
 }

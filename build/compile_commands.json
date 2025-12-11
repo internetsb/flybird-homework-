@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/IE/MyProject/flybird-homework-/build",
+  "command": "D:\\IE\\Code\\MSYS2\\msys2\\ucrt64\\bin\\g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB @CMakeFiles/flybird.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\flybird.dir\\flybird_autogen\\mocs_compilation.cpp.obj -c D:\\IE\\MyProject\\flybird-homework-\\build\\flybird_autogen\\mocs_compilation.cpp",
+  "file": "D:/IE/MyProject/flybird-homework-/build/flybird_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/flybird.dir/flybird_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "D:/IE/MyProject/flybird-homework-/build",
+  "command": "D:\\IE\\Code\\MSYS2\\msys2\\ucrt64\\bin\\g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB @CMakeFiles/flybird.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\flybird.dir\\main.cpp.obj -c D:\\IE\\MyProject\\flybird-homework-\\flybird\\main.cpp",
+  "file": "D:/IE/MyProject/flybird-homework-/flybird/main.cpp",
+  "output": "CMakeFiles/flybird.dir/main.cpp.obj"
+},
+{
+  "directory": "D:/IE/MyProject/flybird-homework-/build",
+  "command": "D:\\IE\\Code\\MSYS2\\msys2\\ucrt64\\bin\\g++.exe -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB @CMakeFiles/flybird.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\flybird.dir\\mainwindow.cpp.obj -c D:\\IE\\MyProject\\flybird-homework-\\flybird\\mainwindow.cpp",
+  "file": "D:/IE/MyProject/flybird-homework-/flybird/mainwindow.cpp",
+  "output": "CMakeFiles/flybird.dir/mainwindow.cpp.obj"
+}
+]

@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStackedWidget>
+#include <QPushButton>
+#include <QLabel>
+
+#include "../game.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,7 +22,20 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void startGame();
+    void showCredits();
+    void onGameOver();
+
 private:
     Ui::MainWindow *ui;
+    QStackedWidget* stack;
+    QWidget* startPage;
+    QWidget* creditsPage;
+    Game* gameView;
+    QPushButton* startButton;
+    QPushButton* creditsButton;
+    QPushButton* creditsBackButton;
+    QLabel* startBackground;
 };
 #endif // MAINWINDOW_H

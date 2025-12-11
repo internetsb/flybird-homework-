@@ -1,0 +1,9 @@
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/flybird.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/edit_cache.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/rebuild_cache.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/list_install_components.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/install.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/install/local.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/install/strip.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/flybird_autogen_timestamp_deps.dir
+D:/IE/MyProject/flybird-homework-/build/CMakeFiles/flybird_autogen.dir

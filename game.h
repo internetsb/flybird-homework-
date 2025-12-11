@@ -13,7 +13,10 @@ public:
 	Game(QWidget* parent = nullptr);
 	void keyPressEvent(QKeyEvent* event);
 	void restartGame();
+signals:
+	void gameOver();
 private slots:
+	void notifyGameOver();
 	void gameLoop();
 
 private:

@@ -28,11 +28,13 @@ SOURCES += \
         main.cpp \
         brid.cpp \
     game.cpp \
+    mainwindow.cpp \
     pipe.cpp
 
 HEADERS += \
         brid.h \
     game.h \
+    mainwindow.h \
     pipe.h \
     bird.h
 

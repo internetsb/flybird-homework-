@@ -1,0 +1,1 @@
+ D:/IE/Code/Python/Anaconda/Library/lib/Qt5Widgets_conda.lib D:/IE/Code/Python/Anaconda/Library/lib/Qt5Gui_conda.lib D:/IE/Code/Python/Anaconda/Library/lib/Qt5Core_conda.lib D:/IE/Code/Python/Anaconda/Library/lib/qtmain_conda.lib -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
