@@ -6,6 +6,12 @@
 
 class Bird : public QGraphicsPixmapItem {
 public:
+    enum BirdState {
+        MidFlap,
+        UpFlap,
+        DownFlap
+    };
+
     Bird();
     void flap();
     void updatePosition();
@@ -15,6 +21,8 @@ private:
     qreal velocity;
     qreal gravity;
     qreal lift;
+    BirdState state;
+    void updatePixmapForState();
 };
 
 #endif // BIRD_H

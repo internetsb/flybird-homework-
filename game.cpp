@@ -67,6 +67,7 @@ void Game::keyPressEvent(QKeyEvent* event) {
 	if (event->key() == Qt::Key_Space) {
 		if (isGameOver) {
 			restartGame();  // 如果游戏结束，按空格键重置游戏
+			bird->flap();   // 在重新开始时也给小鸟一个向上加速度
 		}
 		else {
 			bird->flap();  // 如果游戏在进行，按空格键让小鸟跳跃
