@@ -1,0 +1,67 @@
+# Qt-specific ignores
+*.pro.user
+*.pro.user.*.pri
+*.qbs.user
+*.qml
+*.qmlc
+*.jsc
+
+# Build directories
+build/
+_Build/
+_build/
+_builds/
+cmake-build-*/
+
+# Qt generated files
+*.moc
+*.moc.cpp
+*_plugin_import.cpp
+Makefile
+Makefile.Debug
+Makefile.Release
+ui_*.h
+qrc_*.cpp
+moc_*.cpp
+obj/
+debug/
+release/
+*.user
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# Qt Linguist files (keep .ts files, ignore compiled .qm files)
+*.qm
+
+# Output and executable files
+*.exe
+*.out
+*.app
+*.app/
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.apdisk
+
+# Qt Creator specific
+*.creator
+*.creator.user
+
+# Debug and build artifacts
+*.log
+*.stackdump
+*.dSYM/
