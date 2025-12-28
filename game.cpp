@@ -191,7 +191,7 @@ void Game::gameLoop() {
 			if (score > highScore) {
 				highScore = score;
 				if (highScoreText) {
-					highScoreText->setPlainText(QString::fromUtf8("最高分: %1").arg(highScore));
+					highScoreText->setPlainText(QString::fromUtf8("NEW BEST: %1").arg(highScore));
 					int hx = this->width() - highScoreText->boundingRect().width() - 10;
 					highScoreText->setPos(hx, 14);
 				}
