@@ -13,7 +13,7 @@
 *.dylib
 
 # Build directories
-build*/
+build*/*
 *_Debug*/
 *_Release*/
 _Debug/
