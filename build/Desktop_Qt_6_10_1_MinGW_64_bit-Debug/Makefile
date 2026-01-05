@@ -403,7 +403,6 @@ Makefile: ../../flyBrid.pro ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/qt_config.prf \
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/toolchain.prf \
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/default_pre.prf \
@@ -433,6 +432,7 @@ Makefile: ../../flyBrid.pro ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features
 		../../../../Code/Qt/6.10.1/mingw_64/lib/Qt6Gui.prl \
 		../../../../Code/Qt/6.10.1/mingw_64/lib/Qt6Core.prl \
 		../../../../Code/Qt/6.10.1/mingw_64/lib/Qt6EntryPoint.prl \
+		.qmake.stash \
 		../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/build_pass.prf \
 		../../qrc.qrc
 	$(QMAKE) -o Makefile ..\..\flyBrid.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -769,7 +769,6 @@ Makefile: ../../flyBrid.pro ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/qt_config.prf:
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/toolchain.prf:
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/default_pre.prf:
@@ -799,6 +798,7 @@ Makefile: ../../flyBrid.pro ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features
 ../../../../Code/Qt/6.10.1/mingw_64/lib/Qt6Gui.prl:
 ../../../../Code/Qt/6.10.1/mingw_64/lib/Qt6Core.prl:
 ../../../../Code/Qt/6.10.1/mingw_64/lib/Qt6EntryPoint.prl:
+.qmake.stash:
 ../../../../Code/Qt/6.10.1/mingw_64/mkspecs/features/build_pass.prf:
 ../../qrc.qrc:
 qmake: FORCE

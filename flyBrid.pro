@@ -26,17 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        brid.cpp \
+        bird.cpp \
     game.cpp \
     mainwindow.cpp \
     pipe.cpp
 
 HEADERS += \
-        brid.h \
+        bird.h \
     game.h \
     mainwindow.h \
-    pipe.h \
-    bird.h
+    pipe.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

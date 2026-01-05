@@ -5,12 +5,33 @@
 *.qml
 *.qmlc
 *.jsc
+*.pri
+*.prl
+*.a
+*.lib
+*.so
+*.dylib
 
 # Build directories
-build/
-_Build/
-_build/
-_builds/
+build*/
+*_Debug*/
+*_Release*/
+_Debug/
+_Release/
+_Debug_Static/
+_Release_Static/
+_DebugDLL/
+_ReleaseDLL/
+_DebugDLL_Static/
+_ReleaseDLL_Static/
+_Debug_x64/
+_Release_x64/
+_Debug_x64_Static/
+_Release_x64_Static/
+_Debug_x64DLL/
+_Release_x64DLL/
+_Debug_x64DLL_Static/
+_Release_x64DLL_Static/
 cmake-build-*/
 
 # Qt generated files
@@ -26,7 +47,6 @@ moc_*.cpp
 obj/
 debug/
 release/
-*.user
 
 # CMake generated files
 CMakeFiles/
@@ -49,6 +69,7 @@ compile_commands.json
 *.swp
 *.swo
 *~
+*.user
 
 # OS generated files
 .DS_Store
@@ -65,3 +86,15 @@ Icon?
 *.log
 *.stackdump
 *.dSYM/
+*.userosscache
+
+# Windows-specific
+*.sdf
+*.opensdf
+*.suo
+
+# QML files specific
+*.lupdate~
+
+# Qt test related
+tst_*

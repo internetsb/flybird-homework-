@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-3aea772cfe79a6f82319802cce9fc4fc CMakeFiles/flybird_autogen
-47917ebd97a4c0c5371c4ab7019ce358 D:/IE/MyProject/flybird-homework-/flybird/flybird_zh_CN.ts
-3bf316aaea3aece4bcc623d2fee45286 flybird_autogen/timestamp
