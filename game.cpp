@@ -91,6 +91,7 @@ void Game::restartGame()
 	// 重置分数
 	score = 0;
 	scoreText->setPlainText(QString("Score: %1").arg(score));
+	highScoreText->setPlainText(QString::fromUtf8("BEST: %1").arg(highScore));
 
     // 移除 Game Over 画面
     QList<QGraphicsItem*> items = scene->items();
